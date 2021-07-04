@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversao
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: conversao
+  template:
+    metadata:
+      labels:
+        app: conversao
+    spec:
+      containers:
+        - name: conversao
+          image: brlsistemas/api-conversao:v1
+          ports:
+            - containerPort: 8080 # porta configurada no Dockerfile
